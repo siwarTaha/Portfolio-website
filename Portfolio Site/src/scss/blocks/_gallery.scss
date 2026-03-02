@@ -1,0 +1,73 @@
+@use '../utils/utils.scss' as utils;
+
+.gallery {
+    @include utils.flex-center;
+    flex-direction: column;
+    padding: 40px 20px;
+    gap: 20px;
+
+    &__heading {
+        font-size: x-large;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    &__grid {
+        @include utils.flex-center;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+    }
+
+    &__card {
+        @include utils.flex-center;
+        border-radius: 5mm;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+
+
+        &:hover{
+            transform: scale(1.05);
+        }
+    }
+
+    &__btn {
+        padding: 14px 40px;
+        font-size: 1rem;
+        
+        background-color: #252635;
+        color: utils.$primary-color;
+        border: none;
+        border-radius: 5mm;
+        transition: transform 0.3s ease;
+
+        a{
+            color: utils.$primary-color;
+        }
+
+        &:hover {
+            background-color: #64646480;
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        &:active{
+            transform: scale(0.78);
+            background-color: #1c1e20;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .gallery__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: center;
+        justify-items: center;
+
+    }
+
+    .gallery__card {
+        width: clamp(250px, 60%, 300px);
+   }
+}

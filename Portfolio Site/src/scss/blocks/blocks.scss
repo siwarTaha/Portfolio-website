@@ -1,0 +1,8 @@
+/*Houses styles for individual components, each in its own file, 
+following the BEM methodology (e.g., button.scss, header.scss).*/
+
+@use './button';
+@use './footer';
+@use './header';
+@use './hero';
+@use './gallery';

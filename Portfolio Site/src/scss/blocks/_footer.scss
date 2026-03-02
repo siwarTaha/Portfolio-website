@@ -1,0 +1,49 @@
+@use '../utils/utils.scss' as utils;
+
+ .footer-nav {
+    @include utils.flex-center;
+    
+    &__logo {
+        font-size: 1.2rem;
+        font-weight: 900;
+        margin: 0;
+        margin-bottom: 10px;
+
+        a{ color: utils.$primary-color;}
+    }
+   
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__item a {
+        font-size: 0.9rem;
+        color: utils.$primary-color;
+        opacity: 0.8;
+        padding: 6px 12px;
+        border-radius: 5mm;
+        transition: all 0.2s ease;
+
+        &:hover {
+            opacity: 1;
+            background-color: #64646480;
+        }
+    }
+
+    &__copy {
+        font-size: 0.75rem;
+        opacity: 0.5;
+        margin: 0;
+    }
+ }
+
+@media (min-width: 768px) {
+    .footer__copy {
+        text-align: right;
+    }
+}

@@ -1,0 +1,27 @@
+@use '../utils/utils.scss' as utils;
+
+.btn {
+    margin-top: 30px;
+    padding: 15px 24px;
+    border-radius: 5mm;
+    background-color: #252635;
+    color: utils.$primary-color;
+    font-size: 1rem;
+    border: none;
+    transition: all 0.2s ease;
+
+    a {
+        color: utils.$primary-color;
+    }
+
+    &:hover {
+        background-color: #64646480;
+        transform: scale(1.05);
+        cursor: pointer;
+
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+}
