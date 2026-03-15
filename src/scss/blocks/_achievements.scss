@@ -1,0 +1,97 @@
+@use '../utils/utils.scss' as utils;
+
+.achievements{
+    background-image: url(/src/img/main.png);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    p, h2{
+        color: utils.$color;
+    }
+
+    .parallax:first-child{
+        
+        h1{
+            text-shadow: none;
+            margin-bottom: 10rem;
+            opacity: 0;
+            animation: fade-up 0.8s ease 0.3s forwards;
+            color: utils.$color;
+
+        }
+        p {
+            opacity: 0;
+            animation: fade-up 0.8s ease 0.9s forwards;
+            color: utils.$color;
+        }
+        
+    }
+
+        .parallax:nth-child(2){
+            
+            background-image: url(/src/img/Pictures/award1.jpg);
+        }
+
+        .parallax:nth-child(4){
+            background-image: url(/src/img/Pictures/award2.png);
+        }
+
+        .parallax:nth-child(6){
+            background-image: url(/src/img/Pictures/award3.png);
+        }
+}
+
+@media (orientation: landscape){
+
+        .parallax {
+            min-height: 50vh;
+            padding: 2rem 4rem;
+        }
+
+        .parallax:first-child {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 3rem;
+
+            h1 { margin-bottom: 0; }
+
+        .parallax:nth-child(2),
+        .parallax:nth-child(4),
+        .parallax:nth-child(6) {
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            padding-left: 3rem;
+        }
+
+        .content {
+            max-width: 75ch;
+            margin: 0 auto;
+            padding: 2.5rem 2rem;
+        }
+    }
+
+
+    @media (orientation: landscape) and (max-height: 450px) {
+
+        .parallax:first-child {
+            flex-direction: column;
+            h1 {
+                font-size: 1.1rem;
+                margin-bottom: 0.5rem;
+            }
+            p { font-size: 0.85rem; }
+        }
+
+        .parallax:nth-child(2),
+        .parallax:nth-child(4),
+        .parallax:nth-child(6) {
+            min-height: 50vh;
+        }
+    }
+}
+

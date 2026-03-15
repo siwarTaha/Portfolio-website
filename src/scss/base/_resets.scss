@@ -1,0 +1,38 @@
+@use '../utils/utils.scss';
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    min-height: 100vh;
+    @include utils.margin_padding_0;
+
+    background:linear-gradient(to top, #515bd4, utils.$primary-color);
+    @include utils.background-center;
+}
+
+main{
+    padding-top: 60px;
+    margin: 10px 10px;
+    margin-top: 0;
+}
+
+footer {
+    @include utils.flex-center(column);
+    gap: 20px;
+    padding: 40px 20px;
+    background-color: utils.$color;;
+    color: utils.$primary-color;
+}
+
+@media (min-width: 768px) {
+    .footer {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 60px;
+        text-align: left;
+    }
+}

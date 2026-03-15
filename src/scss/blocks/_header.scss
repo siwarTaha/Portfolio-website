@@ -1,0 +1,150 @@
+@use '../utils/utils.scss' as utils;
+
+.navbar{
+    transition: padding 0.3s ease;
+
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 15px 20px;
+    background-color: utils.$color;;
+    z-index: 100;
+    width: 100%;
+
+    &--scrolled {
+        padding: 6px 20px;
+    }
+
+    a{
+        color: utils.$primary-color;
+    }
+
+    &__logo{
+
+        padding-left: 0;
+        font-size: larger;
+        font-weight:900;
+
+        z-index: 100;
+    }
+
+     &__hamburger {
+        cursor: pointer;
+    }
+
+    &__list{
+        width: 100%;
+        @include utils.flex-center(column);
+        gap: 19px;
+        z-index: 100;
+
+        margin-right: clamp(10px, 20px, 40px);
+
+        max-height: 0;
+        overflow: hidden;
+
+        transition: max-height 0.3s ease, background-color 0.3s ease;
+    }
+
+    &__toggle{
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    &__toggle:checked ~ &__list {
+        max-height: 500px;
+    }
+
+    &__toggle:checked ~ &__list &__list-item {
+        animation: slide-down 0.3s ease forwards;
+    }
+
+    &__list-item{
+        @include utils.flex-center(row);
+
+        border-radius: 5mm;
+        font-size: 15px;
+        padding: 10px 18px;
+
+        transition: all 0.2s ease-in;
+
+        &:hover{
+            background-color: #64646480;
+            cursor: pointer;
+        }
+    }
+
+     &__overlay {
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 50;
+        top: 60px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    &__overlay--active {
+    opacity: 1;
+    pointer-events: auto;
+}
+}
+
+@media (min-width: 768px) {
+    .navbar__hamburger {
+        display: none;
+    }
+
+    .navbar__list {
+        flex-direction: row;
+        max-height: none;
+        width: auto;
+        overflow: visible;
+    }
+
+    .navbar__toggle:checked ~ .navbar__list {
+        background-color: transparent;
+    }
+
+}
+
+@media (orientation: landscape) {
+    .navbar {
+        padding: 8px 20px;
+
+        &--scrolled {
+            padding: 4px 20px;
+        }
+
+        &__list {
+            gap: 10px;
+        }
+
+        &__list-item {
+            padding: 6px 14px;
+            font-size: 13px;
+        }
+    }
+}
+
+@media (orientation: landscape) and (max-height: 450px) {
+    .navbar {
+        padding: 5px 20px;
+
+        &__list-item {
+            padding: 4px 10px;
+            font-size: 12px;
+        }
+    }
+
+    .navbar__overlay {
+        top: 45px;
+    }
+}
